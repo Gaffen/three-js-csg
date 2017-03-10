@@ -36,7 +36,7 @@
         faceVertexUvs = geometry.faceVertexUvs[0][i];
         polygon = new ThreeBSP.Polygon;
 
-        if ( face.a && face.b && face.c && !face.d ) {
+        if ( face.a !== undefined && face.b !== undefined && face.c !== undefined && face.d === undefined ) {
           vertex = geometry.vertices[ face.a ];
                                   uvs = faceVertexUvs ? new THREE.Vector2( faceVertexUvs[0].x, faceVertexUvs[0].y ) : null;
                                   vertex = new ThreeBSP.Vertex( vertex.x, vertex.y, vertex.z, face.vertexNormals[0], uvs );
@@ -54,7 +54,7 @@
                                   vertex = new ThreeBSP.Vertex( vertex.x, vertex.y, vertex.z, face.vertexNormals[2], uvs );
           vertex.applyMatrix4(this.matrix);
           polygon.vertices.push( vertex );
-        } else if ( face.a && face.b && face.c && face.d ) {
+        } else if ( face.a !== undefined && face.b !== undefined && face.c !== undefined && face.d !== undefined ) {
           vertex = geometry.vertices[ face.a ];
                                   uvs = faceVertexUvs ? new THREE.Vector2( faceVertexUvs[0].x, faceVertexUvs[0].y ) : null;
                                   vertex = new ThreeBSP.Vertex( vertex.x, vertex.y, vertex.z, face.vertexNormals[0], uvs );
